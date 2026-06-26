@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: MediFind Pharmacy Registration API
+  description: Backend API for MediFind pharmacy partner onboarding, secured with WSO2 Identity Platform
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service is healthy
+  /api/register-pharmacy:
+    post:
+      summary: Register a new pharmacy partner
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - pharmacyName
+                - registrationNo
+                - contactNumber
+                - city
+                - email
+              properties:
+                pharmacyName:
+                  type: string
+                registrationNo:
+                  type: string
+                contactNumber:
+                  type: string
+                city:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '201':
+          description: Registration successful
+        '400':
+          description: Invalid input
+  /api/registrations:
+    get:
+      summary: Get all pharmacy registrations
+      responses:
+        '200':
+          description: List of registrations
