@@ -3,6 +3,6 @@ endpoints:
   - name: MediFind Pharmacy API
     port: 8080
     type: REST
-    networkVisibility: Privet
+    networkVisibility: Public
     context: /
     schemaFilePath: openapi.yaml
